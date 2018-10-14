@@ -1,14 +1,37 @@
-var express = require('express');
 
+var express = require('express');
+var bodyParser = require('body-parser');
 var app  = express();
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set('view engine','ejs');
 
 app.use('/css', express.static('css'));
 
+app.get('/',function(req,res){
+     res.render('index',{qs:req.query});
+     console.log(req.url);
+     console.log(req.query);
+});
+
+app.get('/contact',function(req,res){
+     res.render('contact',{qs:req.query});
+     console.log(req.url);
+     console.log(req.query);
+});
+
+app.post('/contact',urlencodedParser,function(req,res){
+     res.render('contact-success',{data:req.body});
+     console.log(req.url);
+     console.log(req.body);
+});
+
 app.get('/profile/:name', function(req,res){
-     res.render('profile');
-     console.log();
+     var data = {age: 26, job:'software developer'};
+     res.render('profile',{person:req.params.name ,data:data});
+     console.log(req.url);
+     console.log(req.query);
 });
 
 app.listen(3000);

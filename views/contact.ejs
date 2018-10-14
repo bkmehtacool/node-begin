@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title></title>
+     </head>
+     <link rel="stylesheet" href="/css/style.css" type="text/css">
+     <body>
+          <% include nav.ejs %>
+          <h1>this contact page</h1>
+          <form class="contact" action="/contact" method="post">
+               Name <br>
+               <input type="text" name="who" value=""><br>
+               job <br>
+               <input type="text" name="department" value=""><br>
+               Email <br>
+               <input type="email" name="email" value=""><br> <br>
+               <input type="submit" name="" value="SUBMIT" style="background-color: green; text-align: center;
+               height:40px; color:#fff; font-weight:900;">
+          </form>
+     </body>
+</html>
